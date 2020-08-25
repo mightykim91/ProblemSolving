@@ -2,7 +2,6 @@ import sys
 
 sys.stdin = open('Programmers/inputs/Kakao_프렌즈4블록.txt', 'r')
 
-
 def solution(m, n, board):
     for y in range(m):
         board[y] = list(board[y])
