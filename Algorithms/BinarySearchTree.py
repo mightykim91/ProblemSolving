@@ -107,24 +107,35 @@ class BinaryTree(object):
             if node is None:
                 pass
             else:
-                print(node.data)
                 _in_order(node.left)
+                print(node.data)
                 _in_order(node.right)
-        _in_order(self.root.left)
-        print(self.root.data)
-        _in_order(self.root.right)
+        _in_order(self.root)
 
     def post_order(self):
         def _post_order(node):
             if node is None:
                 pass
             else:
-                print(node.data)
                 _post_order(node.left)
                 _post_order(node.right)
-        _post_order(self.root.left)
-        _post_order(self.root.right)
-        print(self.root.data)
+                print(node.data)
+        _post_order(self.root)
+
+    def level_order_traversal(self):
+        def _level_order_traversal(node):
+            q = [node]
+            while q:
+                root = q.pop(0)
+                if node is not None:
+                    print(root.data)
+                    if root.left is not None:
+                        q.append(root.left)
+
+                    if root.right is not None:
+                        q.append(root.right)
+
+        _level_order_traversal(self.root)
 
 
 data = [40, 4, 34, 45, 14, 55, 48, 13, 15, 49, 47]
@@ -135,7 +146,8 @@ for el in data:
 
 # b_tree.pre_order_traversal()
 # b_tree.in_order()
-b_tree.post_order()
+# b_tree.post_order()
+b_tree.level_order_traversal()
 
     
 
